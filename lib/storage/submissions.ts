@@ -3,7 +3,11 @@ import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import { FullReport } from '@/lib/types/report';
 
-const SUBMISSIONS_DIR = path.join(process.cwd(), 'data', 'submissions');
+// Use /tmp on Vercel (serverless), local data directory otherwise
+const isVercel = process.env.VERCEL === '1';
+const SUBMISSIONS_DIR = isVercel
+  ? '/tmp/submissions'
+  : path.join(process.cwd(), 'data', 'submissions');
 
 // Ensure submissions directory exists
 async function ensureDir() {

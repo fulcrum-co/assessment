@@ -22,7 +22,7 @@ export const strategySchema = z.object({
   q6_alignment: z.enum(['nearly_identical', 'substantially_similar', 'overlapping_gaps', 'quite_different']),
   q7_abandoned_initiatives: z.enum(['none', '1_2', '3_5', 'more_than_5']),
   q8_stall_causes: z.array(z.string()).min(1).max(2),
-  q9_stalled_priority: z.string().min(200, 'Please provide at least 200 characters').max(400),
+  q9_stalled_priority: z.string().max(400),
 });
 
 // Section 3: Execution Capability
@@ -73,14 +73,14 @@ export const leverageSchema = z.object({
   q29_market_clarity: z.enum(['very_clearly', 'somewhat_clearly', 'not_clearly', 'not_relevant']),
   q30_adjacent_markets: z.enum(['actively_pursuing', 'identified_not_acted', 'discussed', 'havent_explored']),
   q31_partnerships: z.enum(['pursuing', 'identified_not_prioritized', 'possibly', 'doesnt_apply']),
-  q32_leverage_source: z.string().min(200).max(400),
+  q32_leverage_source: z.string().max(400),
 });
 
 // Section 8: Priorities & Readiness
 export const readinessSchema = z.object({
-  q33_constraint: z.string().min(200).max(400),
-  q34_partner_help: z.string().min(200).max(400),
-  q35_breakthrough_year: z.string().min(200).max(400),
+  q33_constraint: z.string().max(400),
+  q34_partner_help: z.string().max(400),
+  q35_breakthrough_year: z.string().max(400),
   q36_investment_capacity: z.enum(['under_5k', '5k_7500', '7500_15k', '15k_plus', 'unsure']),
   q37_timeline: z.enum(['immediately', '1_3_months', '3_6_months', 'exploring']),
   q38_next_step: z.enum(['report_only', 'conversation', 'both', 'just_report']),
