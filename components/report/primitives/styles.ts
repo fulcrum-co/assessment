@@ -1,5 +1,8 @@
 import { StyleSheet } from '@react-pdf/renderer';
 
+// Import font registration (side effect)
+import '@/lib/pdf/fonts';
+
 // Brand colors
 export const colors = {
   primary: '#1a1a1a',
@@ -17,7 +20,7 @@ export const colors = {
 export const commonStyles = StyleSheet.create({
   page: {
     padding: 48,
-    fontFamily: 'Helvetica',
+    fontFamily: 'Satoshi',
     fontSize: 10,
     color: colors.primary,
     backgroundColor: colors.background,
@@ -30,27 +33,27 @@ export const commonStyles = StyleSheet.create({
   },
   h1: {
     fontSize: 24,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
     color: colors.primary,
     marginBottom: 8,
   },
   h2: {
     fontSize: 18,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
     color: colors.primary,
     marginBottom: 8,
     marginTop: 16,
   },
   h3: {
     fontSize: 14,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
     color: colors.primary,
     marginBottom: 6,
     marginTop: 12,
   },
   h4: {
     fontSize: 12,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
     color: colors.primary,
     marginBottom: 4,
     marginTop: 8,
@@ -67,7 +70,7 @@ export const commonStyles = StyleSheet.create({
   },
   caption: {
     fontSize: 8,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
     color: colors.secondary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -110,7 +113,7 @@ export const commonStyles = StyleSheet.create({
   },
   tableHeader: {
     backgroundColor: colors.surface,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
   },
   tableCell: {
     flex: 1,
@@ -122,7 +125,7 @@ export const commonStyles = StyleSheet.create({
     paddingHorizontal: 6,
     borderRadius: 2,
     fontSize: 8,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
   },
   badgeSuccess: {
     backgroundColor: '#d1fae5',

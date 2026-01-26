@@ -77,11 +77,11 @@ export default function StrategyExecution({ scores, content }: StrategyExecution
         <View style={styles.dimensionHeader}>
           <Heading level={2}>Strategic Clarity Assessment</Heading>
           <View style={styles.scoreDisplay}>
-            <Text style={{ fontFamily: 'Helvetica-Bold', fontSize: 14 }}>
+            <Text style={{ fontFamily: 'Satoshi', fontWeight: 'bold', fontSize: 14 }}>
               {scores.strategicClarity.score}/{scores.strategicClarity.maxScore}
             </Text>
             <View style={styles.statusBadge}>
-              <Text style={{ fontSize: 9, fontFamily: 'Helvetica-Bold' }}>
+              <Text style={{ fontSize: 9, fontFamily: 'Satoshi', fontWeight: 'bold' }}>
                 {scores.strategicClarity.status}
               </Text>
             </View>
@@ -128,11 +128,11 @@ export default function StrategyExecution({ scores, content }: StrategyExecution
         <View style={styles.dimensionHeader}>
           <Heading level={2}>Execution Gap Assessment</Heading>
           <View style={styles.scoreDisplay}>
-            <Text style={{ fontFamily: 'Helvetica-Bold', fontSize: 14 }}>
+            <Text style={{ fontFamily: 'Satoshi', fontWeight: 'bold', fontSize: 14 }}>
               {scores.executionGap.score}/{scores.executionGap.maxScore}
             </Text>
             <View style={styles.statusBadge}>
-              <Text style={{ fontSize: 9, fontFamily: 'Helvetica-Bold' }}>
+              <Text style={{ fontSize: 9, fontFamily: 'Satoshi', fontWeight: 'bold' }}>
                 {scores.executionGap.status}
               </Text>
             </View>

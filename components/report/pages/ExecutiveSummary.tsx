@@ -1,9 +1,10 @@
-import { Page, View, Text, StyleSheet } from '@react-pdf/renderer';
+import { Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
 import { ContactInfo } from '@/lib/types/diagnostic';
 import { DimensionScores } from '@/lib/types/scores';
 import { ReportContent } from '@/lib/types/report';
 import { Heading, Paragraph, Quote, Table, Card, Divider, commonStyles, colors } from '../primitives';
 import RadarChart from '../charts/RadarChart';
+import { LOGO_PATH } from '@/lib/pdf/fonts';
 
 interface ExecutiveSummaryProps {
   contact: ContactInfo;
@@ -12,6 +13,19 @@ interface ExecutiveSummaryProps {
 }
 
 const styles = StyleSheet.create({
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 24,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  logo: {
+    width: 80,
+    height: 'auto',
+  },
   scoreBox: {
     backgroundColor: colors.surface,
     padding: 24,
@@ -21,7 +35,7 @@ const styles = StyleSheet.create({
   },
   scoreNumber: {
     fontSize: 48,
-    fontFamily: 'Helvetica-Bold',
+    fontFamily: 'Satoshi', fontWeight: 'bold',
     color: colors.accent,
   },
   scoreLabel: {
@@ -97,13 +111,16 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
 
   return (
     <Page size="A4" style={commonStyles.page}>
-      {/* Header */}
-      <View style={commonStyles.header}>
-        <Text style={commonStyles.caption}>ORGANIZATIONAL LEVERAGE DIAGNOSTIC</Text>
-        <Text style={[commonStyles.h1, { marginTop: 8 }]}>{contact.companyName}</Text>
-        <Text style={commonStyles.small}>
-          Prepared for {contact.name} • {contact.role}
-        </Text>
+      {/* Header with Logo */}
+      <View style={styles.headerRow}>
+        <Image src={LOGO_PATH} style={styles.logo} />
+        <View style={{ alignItems: 'flex-end' }}>
+          <Text style={commonStyles.caption}>FULCRUM LEVERAGE ASSESSMENT</Text>
+          <Text style={[commonStyles.h1, { marginTop: 8 }]}>{contact.companyName}</Text>
+          <Text style={commonStyles.small}>
+            Prepared for {contact.name} • {contact.role}
+          </Text>
+        </View>
       </View>
 
       {/* Overall Score */}
@@ -113,9 +130,9 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
         <Text style={styles.scoreLabel}>out of 100</Text>
         <Text style={[commonStyles.body, { textAlign: 'center', marginTop: 12, maxWidth: 400 }]}>
           Your organization demonstrates{' '}
-          <Text style={{ fontFamily: 'Helvetica-Bold' }}>{executiveSummary.status}</Text>{' '}
+          <Text style={{ fontFamily: 'Satoshi', fontWeight: 'bold' }}>{executiveSummary.status}</Text>{' '}
           operational leverage, meaning your current structure{' '}
-          <Text style={{ fontFamily: 'Helvetica-Bold' }}>{executiveSummary.effectivenessStatement}</Text>{' '}
+          <Text style={{ fontFamily: 'Satoshi', fontWeight: 'bold' }}>{executiveSummary.effectivenessStatement}</Text>{' '}
           the effort and resources you invest.
         </Text>
       </View>

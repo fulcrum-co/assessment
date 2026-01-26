@@ -23,7 +23,7 @@ export default function ReportDocument({
 }: ReportDocumentProps) {
   return (
     <Document
-      title={`Organizational Leverage Diagnostic - ${contact.companyName}`}
+      title={`Fulcrum Leverage Assessment - ${contact.companyName}`}
       author="Fulcrum Collective"
       subject="Organizational Leverage Diagnostic Report"
       keywords="organizational leverage, diagnostic, strategy, execution"
