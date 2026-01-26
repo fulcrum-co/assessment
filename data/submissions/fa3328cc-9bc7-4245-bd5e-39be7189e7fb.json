@@ -1,0 +1,279 @@
+{
+  "contact": {
+    "name": "Test",
+    "email": "test@test.com",
+    "companyName": "Test Co",
+    "role": "CEO"
+  },
+  "responses": {
+    "contact": {
+      "name": "Test",
+      "email": "test@test.com",
+      "companyName": "Test Co",
+      "role": "CEO"
+    },
+    "context": {
+      "q1_revenue": "2m_5m",
+      "q2_team_size": "6_15",
+      "q3_org_stage": "founder_led",
+      "q4_interest_drivers": [
+        "growth_plateau"
+      ]
+    },
+    "strategy": {
+      "q5_decision_behavior": "references_priorities",
+      "q6_alignment": "substantially_similar",
+      "q7_abandoned_initiatives": "1_2",
+      "q8_stall_causes": [
+        "capacity_constraints"
+      ],
+      "q9_stalled_priority": "test"
+    },
+    "execution": {
+      "q10_post_planning": "clear_owners",
+      "q11_translation_responsibility": "dedicated_ops",
+      "q12_work_connection": "tight",
+      "q13_progress_tracking": "surfaced_early",
+      "q14_infrastructure": [],
+      "q15_breakdown_points": [
+        "strategy_to_operational"
+      ]
+    },
+    "operations": {
+      "q16_documentation": "most_documented",
+      "q17_onboarding": "structured",
+      "q18_tool_count": "6_10",
+      "q19_tech_confidence": "somewhat_confident",
+      "q20_tech_value": "50_75"
+    },
+    "capacity": {
+      "q21_capacity": "stretched",
+      "q22_new_capacity": "team_absorbs",
+      "q23_work_distribution": {
+        "fullTime": 50,
+        "partTime": 20,
+        "external": 10,
+        "leadership": 20
+      },
+      "q24_capability_gaps": [],
+      "q25_founder_time": "mixed"
+    },
+    "advisory": {
+      "q26_previous_engagement": "once_twice",
+      "q27_experience_outcomes": [],
+      "q28_different_engagement": ""
+    },
+    "leverage": {
+      "q29_market_clarity": "somewhat_clearly",
+      "q30_adjacent_markets": "identified_not_acted",
+      "q31_partnerships": "identified_not_prioritized",
+      "q32_leverage_source": "test"
+    },
+    "readiness": {
+      "q33_constraint": "test",
+      "q34_partner_help": "test",
+      "q35_breakthrough_year": "test",
+      "q36_investment_capacity": "5k_7500",
+      "q37_timeline": "1_3_months",
+      "q38_next_step": "conversation"
+    }
+  },
+  "scores": {
+    "strategicClarity": {
+      "score": 12,
+      "maxScore": 16,
+      "percentage": 75,
+      "status": "Moderate",
+      "statusDescription": "Strategy exists but inconsistently referenced"
+    },
+    "executionGap": {
+      "score": 16,
+      "maxScore": 21,
+      "percentage": 76,
+      "status": "Moderate",
+      "statusDescription": "Some plans execute, many stall"
+    },
+    "operationalMaturity": {
+      "score": 16,
+      "maxScore": 20,
+      "percentage": 80,
+      "status": "Developing",
+      "statusDescription": "Foundation exists, gaps remain"
+    },
+    "capacityModel": {
+      "score": 11,
+      "maxScore": 20,
+      "percentage": 55,
+      "status": "Crisis",
+      "statusDescription": "Strategic work crowded out"
+    },
+    "advisoryReadiness": {
+      "score": 2,
+      "maxScore": 5,
+      "percentage": 40,
+      "status": "Mixed",
+      "statusDescription": "Open but cautious"
+    },
+    "leverageOpportunity": {
+      "score": 6,
+      "maxScore": 12,
+      "percentage": 50,
+      "status": "Curious",
+      "statusDescription": "Recognizes potential, hasn't systematized"
+    },
+    "overall": 68
+  },
+  "patterns": {
+    "founderTrap": false,
+    "planningTheater": false,
+    "toolSprawl": false,
+    "shelfConsultant": false,
+    "capacityCrisis": false
+  },
+  "content": {
+    "executiveSummary": {
+      "overallScore": 68,
+      "status": "moderate",
+      "effectivenessStatement": "partially multiplies",
+      "keyFindings": [
+        {
+          "dimension": "Leverage Opportunity",
+          "title": "Leverage Opportunity: Curious",
+          "content": "Adjacent opportunities have been identified but not pursued—unrealized potential awaiting action. ",
+          "implication": "You've begun identifying leverage opportunities; systematic pursuit would unlock additional growth."
+        },
+        {
+          "dimension": "Capacity & Team Model",
+          "title": "Capacity Model: Crisis",
+          "content": "Your capacity model shows strain. ",
+          "implication": "Until capacity constraints are addressed, strategic ambitions will be limited by operational bandwidth. The organization cannot grow faster than leadership's personal capacity allows."
+        },
+        {
+          "dimension": "Strategic Clarity",
+          "title": "Strategic Clarity: Moderate",
+          "content": "While your organization has strategic awareness, inconsistency in applying strategy to decisions limits effectiveness. ",
+          "implication": "Strengthening the connection between stated strategy and decision-making would improve resource allocation."
+        }
+      ]
+    },
+    "strategicClarity": {
+      "interpretation": {
+        "opening": "Your organization demonstrates moderate strategic clarity, meaning strategy exists but inconsistently referenced.",
+        "details": [
+          "Leadership effectively references shared priorities when making decisions, demonstrating strong strategic alignment.",
+          "Leadership has substantially similar understanding of priorities with only minor differences."
+        ],
+        "implications": "Your strategic foundation provides a base for execution, though consistency in applying strategy to decisions could be improved."
+      },
+      "decisionBehaviorAnalysis": "Leadership effectively references shared priorities when making decisions, demonstrating strong strategic alignment.",
+      "alignmentAnalysis": "Leadership has substantially similar understanding of priorities with only minor differences.",
+      "initiativeAnalysis": "A small number of initiatives were abandoned, which may reflect healthy course correction.",
+      "stalledPriorityQuote": "test"
+    },
+    "executionGap": {
+      "interpretation": {
+        "opening": "Your execution capability shows a moderate pattern, where some plans execute, many stall.",
+        "details": [
+          "With only 0 of 5 core execution infrastructure elements in place, the organization relies on individual effort rather than systems to drive execution."
+        ],
+        "implications": "Your execution foundation is developing, though strengthening the connection between strategy and daily work would improve results."
+      },
+      "breakdownPoint": "Execution most commonly breaks down between strategy and operational planning.",
+      "infrastructureStatus": {
+        "writtenPlan": false,
+        "quarterlyObjectives": false,
+        "progressReview": false,
+        "metricsTracked": false,
+        "retrospectives": false,
+        "total": 0
+      },
+      "infrastructureAnalysis": "With 0 of 5 core execution infrastructure elements in place, your organization is attempting to execute strategy through willpower and ad hoc coordination rather than systems."
+    },
+    "operationalMaturity": {
+      "interpretation": {
+        "opening": "Your operational infrastructure is developing, meaning foundation exists, gaps remain.",
+        "details": [],
+        "implications": "Your operational foundation supports current operations but may need strengthening to support significant growth."
+      },
+      "documentationAnalysis": "Most critical processes are documented and actively used, providing a foundation for scalable operations.",
+      "techStackAnalysis": "Current state: 6-10 tools (manageable). Confidence: moderate confidence with some waste. Estimated value: 50-75% delivering value."
+    },
+    "capacityModel": {
+      "interpretation": {
+        "opening": "Your capacity model indicates a crisis state, where strategic work crowded out.",
+        "details": [],
+        "implications": "Until capacity constraints are addressed, adding new strategic initiatives will cannibalize existing work rather than expanding organizational output."
+      },
+      "workDistribution": {
+        "fullTime": 50,
+        "partTime": 20,
+        "external": 10,
+        "leadership": 20
+      },
+      "capabilityGapAnalysis": "No significant capability gaps were identified internally."
+    },
+    "leverageOpportunity": {
+      "interpretation": {
+        "opening": "Your organization is curious of leverage opportunities, recognizes potential, hasn't systematized.",
+        "details": [
+          "Market positioning is understood informally but hasn't been formalized, limiting strategic communication.",
+          "Adjacent market opportunities have been identified but not acted upon—a potential source of leverage awaiting activation."
+        ],
+        "implications": "You've begun identifying leverage opportunities; the next step is systematic pursuit of the most promising paths."
+      },
+      "marketPositionAnalysis": "Market positioning is understood informally but hasn't been formalized, limiting strategic communication.",
+      "adjacentMarketAnalysis": "Adjacent opportunities have been identified but not yet acted upon—unrealized potential awaiting activation.",
+      "partnershipAnalysis": "Partnership opportunities have been identified but not prioritized for action.",
+      "leverageSourceQuote": "test"
+    },
+    "comparative": {
+      "benchmarkAnalysis": "Your organization outperforms stage benchmarks in most dimensions (4 of 5). Focus on the gaps to achieve breakthrough performance.",
+      "patternSynthesis": "Your organization demonstrates solid fundamentals across most dimensions. The opportunity is to strengthen specific areas while building on existing strengths.\n\nFocused improvement in your lowest-scoring areas would meaningfully increase overall organizational leverage."
+    },
+    "recommendations": [
+      {
+        "priority": 1,
+        "title": "Systematize Leverage Pursuit",
+        "content": "You're actively pursuing some leverage opportunities. Focus on systematic expansion.",
+        "actions": [
+          "Create a portfolio view of leverage opportunities across markets, partnerships, and efficiency",
+          "Establish metrics to track leverage effectiveness",
+          "Allocate dedicated resources to leverage initiatives",
+          "Regularly review and update your leverage strategy"
+        ]
+      },
+      {
+        "priority": 2,
+        "title": "Rebalance Team Capacity",
+        "content": "Your capacity model is strained. Focus on sustainable work distribution and capability building.",
+        "actions": [
+          "Review work distribution to ensure leadership isn't overloaded with execution",
+          "Identify capability gaps that could be filled with targeted hires or partners",
+          "Create slack in the system for strategic initiatives",
+          "Establish clear boundaries between strategic and operational time"
+        ]
+      },
+      {
+        "priority": 3,
+        "title": "Maintain Strategic Discipline",
+        "content": "Your strategic clarity is solid. Focus on maintaining discipline and ensuring strategy continues to guide decisions.",
+        "actions": [
+          "Continue quarterly strategy reviews",
+          "Document and communicate strategic decisions and their rationale",
+          "Regularly audit whether resource allocation matches stated priorities"
+        ]
+      }
+    ],
+    "engagementReadiness": {
+      "assessment": "Your timeline is urgent, though investment capacity may suggest starting with focused engagements that deliver quick wins while building toward more comprehensive partnership.",
+      "capacity": "$5,000–$7,500/month",
+      "timeline": "Within 1–3 months"
+    },
+    "nextSteps": {
+      "content": "You've indicated interest in a conversation to discuss findings and potential fit. This diagnostic has revealed patterns and priorities that are best explored through dialogue.",
+      "cta": "Schedule a diagnostic review conversation to discuss what these findings mean for your specific situation."
+    }
+  },
+  "id": "fa3328cc-9bc7-4245-bd5e-39be7189e7fb",
+  "createdAt": "2026-01-26T20:02:23.064Z"
+}

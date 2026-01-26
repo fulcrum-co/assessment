@@ -37,13 +37,28 @@ export async function POST(request: Request) {
     const content = generateReportContent(responses, scores, patterns);
 
     // Save submission to storage
-    const report = await saveSubmission({
-      contact: responses.contact,
-      responses,
-      scores,
-      patterns,
-      content,
-    });
+    let report;
+    try {
+      report = await saveSubmission({
+        contact: responses.contact,
+        responses,
+        scores,
+        patterns,
+        content,
+      });
+    } catch (storageError) {
+      console.error('Storage error:', storageError);
+      // Generate a temporary ID if storage fails
+      report = {
+        id: `temp-${Date.now()}`,
+        contact: responses.contact,
+        responses,
+        scores,
+        patterns,
+        content,
+        createdAt: new Date().toISOString(),
+      };
+    }
 
     // Generate PDF
     let pdfBuffer: Buffer;
@@ -94,9 +109,12 @@ export async function POST(request: Request) {
       overallScore: scores.overall,
     });
   } catch (error) {
-    console.error('Submission error:', error);
+    console.error('Submission error:', error instanceof Error ? error.stack : error);
     return NextResponse.json(
-      { error: 'An unexpected error occurred' },
+      {
+        error: 'An unexpected error occurred',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }
