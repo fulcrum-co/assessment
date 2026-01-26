@@ -1,20 +1,62 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Button, Card } from '@/components/ui';
+
+interface StoredReport {
+  id: string;
+  pdfBase64: string;
+  companyName: string;
+}
 
 function CompleteContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const [isDownloading, setIsDownloading] = useState(false);
+  const [storedReport, setStoredReport] = useState<StoredReport | null>(null);
+
+  // Load stored PDF from localStorage on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('fulcrum_report_pdf');
+      if (stored) {
+        const report = JSON.parse(stored) as StoredReport;
+        if (report.id === id) {
+          setStoredReport(report);
+        }
+      }
+    } catch {
+      // Ignore localStorage errors
+    }
+  }, [id]);
 
   const handleDownload = async () => {
-    if (!id) return;
-
     setIsDownloading(true);
     try {
+      // Try to use stored PDF first (works on serverless)
+      if (storedReport?.pdfBase64) {
+        const binaryString = atob(storedReport.pdfBase64);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+        const blob = new Blob([bytes], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const filename = `${storedReport.companyName.replace(/[^a-zA-Z0-9]/g, '_')}_Diagnostic_Report.pdf`;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        return;
+      }
+
+      // Fall back to API (works locally, may fail on serverless)
+      if (!id) throw new Error('No report ID');
       const response = await fetch(`/api/report/${id}`);
       if (!response.ok) throw new Error('Download failed');
 
@@ -29,7 +71,7 @@ function CompleteContent() {
       document.body.removeChild(a);
     } catch (error) {
       console.error('Download error:', error);
-      alert('Failed to download report. Please try again.');
+      alert('Failed to download report. Please try again or contact joe@fulcrumcollective.io');
     } finally {
       setIsDownloading(false);
     }

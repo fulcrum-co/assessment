@@ -276,6 +276,15 @@ export default function DiagnosticForm() {
       // Clear saved progress
       localStorage.removeItem(STORAGE_KEY);
 
+      // Store PDF data for download on complete page
+      if (data.pdfBase64) {
+        localStorage.setItem('fulcrum_report_pdf', JSON.stringify({
+          id: data.id,
+          pdfBase64: data.pdfBase64,
+          companyName: data.companyName,
+        }));
+      }
+
       dispatch({ type: 'SUBMIT_SUCCESS' });
 
       // Navigate to completion page

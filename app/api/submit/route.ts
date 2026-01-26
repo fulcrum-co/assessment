@@ -102,11 +102,13 @@ export async function POST(request: Request) {
       }
     }
 
-    // Return success response
+    // Return success response with PDF data for client-side download
     return NextResponse.json({
       success: true,
       id: report.id,
       overallScore: scores.overall,
+      pdfBase64: pdfBuffer.length > 0 ? pdfBuffer.toString('base64') : null,
+      companyName: responses.contact.companyName,
     });
   } catch (error) {
     console.error('Submission error:', error instanceof Error ? error.stack : error);
