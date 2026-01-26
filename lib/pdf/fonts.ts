@@ -43,4 +43,4 @@ Font.register({
 // Disable hyphenation for cleaner text
 Font.registerHyphenationCallback((word) => [word]);
 
-export const LOGO_PATH = getAssetPath('Fulcrum Original Logo.png');
+export const LOGO_PATH = getAssetPath('fulcrum-logo.png');

@@ -62,7 +62,9 @@ export async function POST(request: Request) {
 
     // Generate PDF
     let pdfBuffer: Buffer;
+    let pdfError: Error | null = null;
     try {
+      console.log('Starting PDF generation...');
       pdfBuffer = await generateReport(
         responses.contact,
         responses,
@@ -70,36 +72,48 @@ export async function POST(request: Request) {
         patterns,
         content
       );
-    } catch (pdfError) {
-      console.error('PDF generation failed:', pdfError);
+      console.log('PDF generated successfully, size:', pdfBuffer.length);
+    } catch (err) {
+      pdfError = err instanceof Error ? err : new Error(String(err));
+      console.error('PDF generation failed:', pdfError.message, pdfError.stack);
       // Continue without PDF - don't fail the entire submission
       pdfBuffer = Buffer.from(''); // Empty buffer as fallback
     }
 
-    // Send report email to user
-    if (pdfBuffer.length > 0 && process.env.RESEND_API_KEY) {
+    // Send report email to user (even if PDF failed, send notification)
+    if (process.env.RESEND_API_KEY) {
       try {
-        const emailResult = await sendReportEmail({
-          contact: responses.contact,
-          scores,
-          reportId: report.id,
-          pdfBuffer,
-        });
+        // Only send report email with attachment if PDF was generated
+        if (pdfBuffer.length > 0) {
+          const emailResult = await sendReportEmail({
+            contact: responses.contact,
+            scores,
+            reportId: report.id,
+            pdfBuffer,
+          });
 
-        if (!emailResult.success) {
-          console.error('Failed to send report email:', emailResult.error);
+          if (!emailResult.success) {
+            console.error('Failed to send report email:', emailResult.error);
+          } else {
+            console.log('Report email sent successfully');
+          }
+        } else {
+          console.warn('PDF was empty, skipping report email with attachment');
         }
 
-        // Send notification email to admin
+        // Always send notification email to admin
         await sendNotificationEmail({
           contact: responses.contact,
           scores,
           reportId: report.id,
         });
+        console.log('Notification email sent successfully');
       } catch (emailError) {
-        console.error('Email sending failed:', emailError);
+        console.error('Email sending failed:', emailError instanceof Error ? emailError.message : emailError);
         // Don't fail the submission if email fails
       }
+    } else {
+      console.warn('RESEND_API_KEY not set, skipping emails');
     }
 
     // Return success response with PDF data for client-side download
