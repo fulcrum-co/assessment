@@ -5,17 +5,19 @@ import path from 'path';
 const isVercel = process.env.VERCEL === '1';
 
 // Get the base URL for assets
-// On Vercel, use the deployment URL; locally use file paths
+// On Vercel, use BASE_URL (stable) over VERCEL_URL (changes per deployment)
 const getAssetPath = (filename: string) => {
   if (isVercel) {
-    // Use the deployment URL for Vercel
-    const baseUrl = process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : process.env.BASE_URL || 'https://assessment.fulcrumcollective.io';
-    return `${baseUrl}/${filename}`;
+    // Prefer BASE_URL (user-configured, stable) over VERCEL_URL (dynamic per deployment)
+    const baseUrl = process.env.BASE_URL || 'https://assessment.fulcrumcollective.io';
+    const assetUrl = `${baseUrl}/${filename}`;
+    console.log(`[PDF Fonts] Loading asset from URL: ${assetUrl}`);
+    return assetUrl;
   }
   // Local development - use file path
-  return path.join(process.cwd(), 'public', filename);
+  const localPath = path.join(process.cwd(), 'public', filename);
+  console.log(`[PDF Fonts] Loading asset from file: ${localPath}`);
+  return localPath;
 };
 
 const fontPath = getAssetPath('Satoshi-Variable.ttf');
