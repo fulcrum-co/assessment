@@ -165,7 +165,7 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
             {finding.quote && (
               <Quote>"{finding.quote}"</Quote>
             )}
-            <Text style={[commonStyles.small, { marginTop: 8, fontStyle: 'italic' }]}>
+            <Text style={[commonStyles.small, { marginTop: 8,  }]}>
               {finding.implication}
             </Text>
           </View>

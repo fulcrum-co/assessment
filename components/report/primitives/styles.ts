@@ -100,7 +100,6 @@ export const commonStyles = StyleSheet.create({
     borderLeftColor: colors.accent,
     padding: 12,
     marginVertical: 12,
-    fontStyle: 'italic',
   },
   table: {
     marginVertical: 12,

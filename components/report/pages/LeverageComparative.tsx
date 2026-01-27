@@ -147,7 +147,7 @@ export default function LeverageComparative({ scores, content }: LeverageCompara
           </View>
         )}
 
-        <Text style={[commonStyles.body, { fontStyle: 'italic', marginTop: 8 }]}>
+        <Text style={[commonStyles.body, {  marginTop: 8 }]}>
           {leverageOpportunity.interpretation.implications}
         </Text>
       </View>

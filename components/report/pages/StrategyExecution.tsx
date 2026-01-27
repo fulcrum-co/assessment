@@ -116,7 +116,7 @@ export default function StrategyExecution({ scores, content }: StrategyExecution
           </View>
         )}
 
-        <Text style={[commonStyles.body, { fontStyle: 'italic', marginTop: 8 }]}>
+        <Text style={[commonStyles.body, {  marginTop: 8 }]}>
           {strategicClarity.interpretation.implications}
         </Text>
       </View>
@@ -185,7 +185,7 @@ export default function StrategyExecution({ scores, content }: StrategyExecution
           </Text>
         </Card>
 
-        <Text style={[commonStyles.body, { fontStyle: 'italic', marginTop: 8 }]}>
+        <Text style={[commonStyles.body, {  marginTop: 8 }]}>
           {executionGap.interpretation.implications}
         </Text>
       </View>

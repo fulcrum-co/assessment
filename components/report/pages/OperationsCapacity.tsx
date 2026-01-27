@@ -134,7 +134,7 @@ export default function OperationsCapacity({ scores, content }: OperationsCapaci
           </View>
         )}
 
-        <Text style={[commonStyles.body, { fontStyle: 'italic', marginTop: 8 }]}>
+        <Text style={[commonStyles.body, {  marginTop: 8 }]}>
           {operationalMaturity.interpretation.implications}
         </Text>
       </View>
@@ -210,7 +210,7 @@ export default function OperationsCapacity({ scores, content }: OperationsCapaci
           <Paragraph>{capacityModel.capabilityGapAnalysis}</Paragraph>
         </Card>
 
-        <Text style={[commonStyles.body, { fontStyle: 'italic', marginTop: 8 }]}>
+        <Text style={[commonStyles.body, {  marginTop: 8 }]}>
           {capacityModel.interpretation.implications}
         </Text>
       </View>
