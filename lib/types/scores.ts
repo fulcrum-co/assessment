@@ -28,6 +28,7 @@ export interface DetectedPatterns {
   toolSprawl: boolean;
   shelfConsultant: boolean;
   capacityCrisis: boolean;
+  executionInfrastructureGap: boolean;
 }
 
 export interface InfrastructureStatus {

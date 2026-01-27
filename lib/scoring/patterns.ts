@@ -42,12 +42,21 @@ export function detectPatterns(
     capacity.q21_capacity === 'underwater' &&
     capacity.q22_new_capacity === 'competes';
 
+  // Execution Infrastructure Gap Pattern
+  // Detected when: few infrastructure elements in place and execution score is low
+  const { execution } = responses;
+  const infrastructureCount = (execution.q14_infrastructure || []).length;
+  const executionInfrastructureGap =
+    infrastructureCount <= 2 &&
+    scores.executionGap.score <= 11;
+
   return {
     founderTrap,
     planningTheater,
     toolSprawl,
     shelfConsultant,
     capacityCrisis,
+    executionInfrastructureGap,
   };
 }
 
@@ -82,6 +91,11 @@ export function getPatternDescription(patternName: keyof DetectedPatterns): {
       title: 'Capacity Crisis',
       description: 'The team is underwater, and new priorities cannibalize existing work.',
       implications: 'Adding strategic initiatives without capacity creates the illusion of progress while actually fragmenting execution.',
+    },
+    executionInfrastructureGap: {
+      title: 'Execution Infrastructure Gap',
+      description: 'Few execution infrastructure elements are in place, and strategy-to-results translation is weak.',
+      implications: 'Without documented objectives, progress rhythms, and accountability systems, even good plans fail to produce results.',
     },
   };
 
