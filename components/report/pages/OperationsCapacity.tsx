@@ -99,11 +99,11 @@ export default function OperationsCapacity({ scores, content }: OperationsCapaci
         <View style={styles.dimensionHeader}>
           <Heading level={2}>Operational Maturity Assessment</Heading>
           <View style={styles.scoreDisplay}>
-            <Text style={{ fontFamily: 'Satoshi', fontWeight: 700, fontSize: 14 }}>
+            <Text style={{ fontFamily: 'Helvetica', fontWeight: 700, fontSize: 14 }}>
               {scores.operationalMaturity.score}/{scores.operationalMaturity.maxScore}
             </Text>
             <View style={styles.statusBadge}>
-              <Text style={{ fontSize: 9, fontFamily: 'Satoshi', fontWeight: 700 }}>
+              <Text style={{ fontSize: 9, fontFamily: 'Helvetica', fontWeight: 700 }}>
                 {scores.operationalMaturity.status}
               </Text>
             </View>
@@ -146,11 +146,11 @@ export default function OperationsCapacity({ scores, content }: OperationsCapaci
         <View style={styles.dimensionHeader}>
           <Heading level={2}>Capacity & Team Model Assessment</Heading>
           <View style={styles.scoreDisplay}>
-            <Text style={{ fontFamily: 'Satoshi', fontWeight: 700, fontSize: 14 }}>
+            <Text style={{ fontFamily: 'Helvetica', fontWeight: 700, fontSize: 14 }}>
               {scores.capacityModel.score}/{scores.capacityModel.maxScore}
             </Text>
             <View style={styles.statusBadge}>
-              <Text style={{ fontSize: 9, fontFamily: 'Satoshi', fontWeight: 700 }}>
+              <Text style={{ fontSize: 9, fontFamily: 'Helvetica', fontWeight: 700 }}>
                 {scores.capacityModel.status}
               </Text>
             </View>

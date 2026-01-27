@@ -132,10 +132,10 @@ export default function RadarChart({ data, size = 200 }: RadarChartProps) {
             alignItems: pos.textAlign === 'center' ? 'center' : pos.textAlign === 'right' ? 'flex-end' : 'flex-start',
           }}
         >
-          <Text style={{ fontSize: 6, color: colors.primary, fontFamily: 'Satoshi' }}>
+          <Text style={{ fontSize: 6, color: colors.primary, fontFamily: 'Helvetica' }}>
             {pos.label}
           </Text>
-          <Text style={{ fontSize: 7, color: colors.accent, fontFamily: 'Satoshi', fontWeight: 700 }}>
+          <Text style={{ fontSize: 7, color: colors.accent, fontFamily: 'Helvetica', fontWeight: 700 }}>
             {pos.percentage}%
           </Text>
         </View>

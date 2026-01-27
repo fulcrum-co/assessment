@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 8,
     color: colors.secondary,
-    fontFamily: 'Satoshi',
+    fontFamily: 'Helvetica',
   },
 });
 

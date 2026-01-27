@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   scoreNumber: {
     fontSize: 48,
-    fontFamily: 'Satoshi', fontWeight: 700,
+    fontFamily: 'Helvetica', fontWeight: 700,
     color: colors.accent,
   },
   scoreLabel: {
@@ -130,9 +130,9 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
         <Text style={styles.scoreLabel}>out of 100</Text>
         <Text style={[commonStyles.body, { textAlign: 'center', marginTop: 12, maxWidth: 400 }]}>
           Your organization demonstrates{' '}
-          <Text style={{ fontFamily: 'Satoshi', fontWeight: 700 }}>{executiveSummary.status}</Text>{' '}
+          <Text style={{ fontFamily: 'Helvetica', fontWeight: 700 }}>{executiveSummary.status}</Text>{' '}
           operational leverage, meaning your current structure{' '}
-          <Text style={{ fontFamily: 'Satoshi', fontWeight: 700 }}>{executiveSummary.effectivenessStatement}</Text>{' '}
+          <Text style={{ fontFamily: 'Helvetica', fontWeight: 700 }}>{executiveSummary.effectivenessStatement}</Text>{' '}
           the effort and resources you invest.
         </Text>
       </View>

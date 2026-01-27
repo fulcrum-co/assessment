@@ -66,7 +66,7 @@ export function Table({ columns, data }: { columns: TableColumn[]; data: TableRo
       <View style={[commonStyles.tableRow, commonStyles.tableHeader]}>
         {columns.map((col) => (
           <View key={col.key} style={getCellStyle(col.width)}>
-            <Text style={{ fontFamily: 'Satoshi', fontWeight: 700, fontSize: 9 }}>{col.header}</Text>
+            <Text style={{ fontFamily: 'Helvetica', fontWeight: 700, fontSize: 9 }}>{col.header}</Text>
           </View>
         ))}
       </View>
@@ -103,7 +103,7 @@ export function ScoreBadge({ score, maxScore, status }: { score: number; maxScor
 
   return (
     <View style={[commonStyles.row, { gap: 8 }]}>
-      <Text style={{ fontSize: 11, fontFamily: 'Satoshi', fontWeight: 700 }}>
+      <Text style={{ fontSize: 11, fontFamily: 'Helvetica', fontWeight: 700 }}>
         {score}/{maxScore}
       </Text>
       <View style={badgeStyle}>
