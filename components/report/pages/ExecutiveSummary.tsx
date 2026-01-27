@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   chartContainer: {
-    width: '45%',
+    width: '35%',
   },
   tableContainer: {
-    width: '50%',
+    width: '62%',
   },
   findingCard: {
     backgroundColor: colors.surface,
@@ -146,9 +146,9 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
           <Text style={commonStyles.h4}>Diagnostic Profile</Text>
           <Table
             columns={[
-              { key: 'dimension', header: 'Dimension', width: 120 },
-              { key: 'score', header: 'Score', width: 45 },
-              { key: 'status', header: 'Status', width: 70 },
+              { key: 'dimension', header: 'Dimension', width: 180 },
+              { key: 'score', header: 'Score', width: 70 },
+              { key: 'status', header: 'Status', width: 80 },
             ]}
             data={dimensionTableData}
           />
