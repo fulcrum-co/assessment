@@ -146,9 +146,9 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
           <Text style={commonStyles.h4}>Diagnostic Profile</Text>
           <Table
             columns={[
-              { key: 'dimension', header: 'Dimension', width: 140 },
-              { key: 'score', header: 'Score', width: 50 },
-              { key: 'status', header: 'Status', width: 60 },
+              { key: 'dimension', header: 'Dimension', width: 120 },
+              { key: 'score', header: 'Score', width: 45 },
+              { key: 'status', header: 'Status', width: 70 },
             ]}
             data={dimensionTableData}
           />
