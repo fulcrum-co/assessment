@@ -4,7 +4,7 @@ import { DimensionScores } from '@/lib/types/scores';
 import { ReportContent } from '@/lib/types/report';
 import { Heading, Paragraph, Quote, Table, Card, Divider, commonStyles, colors } from '../primitives';
 import RadarChart from '../charts/RadarChart';
-import { LOGO_PATH } from '@/lib/pdf/fonts';
+import { getLogoPath } from '@/lib/pdf/fonts';
 
 interface ExecutiveSummaryProps {
   contact: ContactInfo;
@@ -113,7 +113,7 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
     <Page size="A4" style={commonStyles.page}>
       {/* Header with Logo */}
       <View style={styles.headerRow}>
-        <Image src={LOGO_PATH} style={styles.logo} />
+        <Image src={getLogoPath()} style={styles.logo} />
         <View style={{ alignItems: 'flex-end' }}>
           <Text style={commonStyles.caption}>FULCRUM LEVERAGE ASSESSMENT</Text>
           <Text style={[commonStyles.h1, { marginTop: 8 }]}>{contact.companyName}</Text>

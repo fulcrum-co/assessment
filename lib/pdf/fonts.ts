@@ -3,11 +3,8 @@ import { Font } from '@react-pdf/renderer';
 // Flag to track if fonts are registered
 let fontsRegistered = false;
 
-// Determine if we're on Vercel
-const isVercel = process.env.VERCEL === '1';
-
-// Base URL for assets - use VERCEL_URL if BASE_URL not set (for preview deployments)
-function getBaseUrl() {
+// Get base URL lazily at runtime (not module load time)
+function getBaseUrl(): string {
   if (process.env.BASE_URL) {
     return process.env.BASE_URL;
   }
@@ -17,10 +14,13 @@ function getBaseUrl() {
   return 'https://assessment.fulcrumcollective.io';
 }
 
-const BASE_URL = getBaseUrl();
+// Logo path - computed lazily
+export function getLogoPath(): string {
+  return `${getBaseUrl()}/fulcrum-logo.png`;
+}
 
-// Logo path - use URL (works on Vercel)
-export const LOGO_PATH = `${BASE_URL}/fulcrum-logo.png`;
+// For backwards compatibility
+export const LOGO_PATH = 'https://assessment.fulcrumcollective.io/fulcrum-logo.png';
 
 // Register fonts lazily when needed
 export function ensureFontsRegistered() {
@@ -28,12 +28,17 @@ export function ensureFontsRegistered() {
     return;
   }
 
+  const isVercel = process.env.VERCEL === '1';
+  const baseUrl = getBaseUrl();
+
   console.log('[PDF Fonts] Registering fonts...');
+  console.log('[PDF Fonts] isVercel:', isVercel);
+  console.log('[PDF Fonts] BASE_URL:', baseUrl);
 
   try {
     if (isVercel) {
       // On Vercel, use the production URL
-      const fontUrl = `${BASE_URL}/Satoshi-Variable.ttf`;
+      const fontUrl = `${baseUrl}/Satoshi-Variable.ttf`;
       console.log('[PDF Fonts] Using URL font source:', fontUrl);
 
       Font.register({
@@ -71,9 +76,4 @@ export function ensureFontsRegistered() {
   }
 }
 
-// Auto-register on import
-try {
-  ensureFontsRegistered();
-} catch (e) {
-  console.error('[PDF Fonts] Auto-registration failed:', e);
-}
+// Don't auto-register - let it happen on first use

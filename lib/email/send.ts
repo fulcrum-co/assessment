@@ -18,8 +18,8 @@ function getResendClient(): Resend | null {
 const FROM_EMAIL = process.env.FROM_EMAIL || 'diagnostic@fulcrumcollective.io';
 const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'joe@fulcrumcollective.io';
 
-// Base URL for links - use VERCEL_URL if BASE_URL not set (for preview deployments)
-function getBaseUrl() {
+// Base URL for links - computed lazily at runtime
+function getBaseUrl(): string {
   if (process.env.BASE_URL) {
     return process.env.BASE_URL;
   }
@@ -28,8 +28,6 @@ function getBaseUrl() {
   }
   return 'https://assessment.fulcrumcollective.io';
 }
-
-const BASE_URL = getBaseUrl();
 
 interface SendReportEmailParams {
   contact: ContactInfo;
@@ -52,7 +50,7 @@ export async function sendReportEmail({
   }
 
   try {
-    const downloadUrl = `${BASE_URL}/api/report/${reportId}`;
+    const downloadUrl = `${getBaseUrl()}/api/report/${reportId}`;
 
     await resend.emails.send({
       from: `Fulcrum Collective <${FROM_EMAIL}>`,
@@ -165,7 +163,7 @@ export async function sendNotificationEmail({
   }
 
   try {
-    const downloadUrl = `${BASE_URL}/api/report/${reportId}`;
+    const downloadUrl = `${getBaseUrl()}/api/report/${reportId}`;
 
     await resend.emails.send({
       from: `Fulcrum Diagnostic <${FROM_EMAIL}>`,

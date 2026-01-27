@@ -1,5 +1,5 @@
 import { View, Text, Image, StyleSheet } from '@react-pdf/renderer';
-import { LOGO_PATH } from '@/lib/pdf/fonts';
+import { getLogoPath } from '@/lib/pdf/fonts';
 import { colors } from './styles';
 
 interface HeaderProps {
@@ -32,7 +32,7 @@ export default function Header({ title = 'Fulcrum Leverage Assessment', showLogo
   return (
     <View style={styles.header}>
       {showLogo && (
-        <Image src={LOGO_PATH} style={styles.logo} />
+        <Image src={getLogoPath()} style={styles.logo} />
       )}
       <Text style={styles.title}>{title}</Text>
     </View>
