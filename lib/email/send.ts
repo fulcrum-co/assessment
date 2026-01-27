@@ -17,7 +17,19 @@ function getResendClient(): Resend | null {
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'diagnostic@fulcrumcollective.io';
 const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'joe@fulcrumcollective.io';
-const BASE_URL = process.env.BASE_URL || 'https://assessment.fulcrumcollective.io';
+
+// Base URL for links - use VERCEL_URL if BASE_URL not set (for preview deployments)
+function getBaseUrl() {
+  if (process.env.BASE_URL) {
+    return process.env.BASE_URL;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return 'https://assessment.fulcrumcollective.io';
+}
+
+const BASE_URL = getBaseUrl();
 
 interface SendReportEmailParams {
   contact: ContactInfo;

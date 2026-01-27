@@ -6,8 +6,18 @@ let fontsRegistered = false;
 // Determine if we're on Vercel
 const isVercel = process.env.VERCEL === '1';
 
-// Base URL for assets
-const BASE_URL = process.env.BASE_URL || 'https://assessment.fulcrumcollective.io';
+// Base URL for assets - use VERCEL_URL if BASE_URL not set (for preview deployments)
+function getBaseUrl() {
+  if (process.env.BASE_URL) {
+    return process.env.BASE_URL;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return 'https://assessment.fulcrumcollective.io';
+}
+
+const BASE_URL = getBaseUrl();
 
 // Logo path - use URL (works on Vercel)
 export const LOGO_PATH = `${BASE_URL}/fulcrum-logo.png`;
