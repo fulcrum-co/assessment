@@ -1,4 +1,4 @@
-import { Page, View, Text, StyleSheet } from '@react-pdf/renderer';
+import { Page, View, Text, Link, StyleSheet } from '@react-pdf/renderer';
 import { ReportContent } from '@/lib/types/report';
 import { Heading, Paragraph, BulletList, Card, Divider, commonStyles, colors } from '../primitives';
 import { METHODOLOGY_NOTE, FOOTER_TEXT } from '@/lib/content/templates';
@@ -125,6 +125,12 @@ export default function Recommendations({ content }: RecommendationsProps) {
         <Text style={[commonStyles.body, { fontFamily: 'Satoshi', fontWeight: 'bold', color: colors.accent }]}>
           {nextSteps.cta}
         </Text>
+        <Link
+          src="https://cal.com/fulcrumcollective/discovery-call"
+          style={[commonStyles.body, { color: colors.accent, marginTop: 8, textDecoration: 'underline' }]}
+        >
+          Schedule a Discovery Call →
+        </Link>
       </View>
 
       {/* Methodology Note */}
