@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   chartContainer: {
-    width: '35%',
+    width: '30%',
   },
   tableContainer: {
-    width: '62%',
+    width: '68%',
   },
   findingCard: {
     backgroundColor: colors.surface,
@@ -140,15 +140,15 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
       {/* Radar Chart and Dimension Table */}
       <View style={styles.chartSection}>
         <View style={styles.chartContainer}>
-          <RadarChart data={radarData} size={180} />
+          <RadarChart data={radarData} size={140} />
         </View>
         <View style={styles.tableContainer}>
           <Text style={commonStyles.h4}>Diagnostic Profile</Text>
           <Table
             columns={[
-              { key: 'dimension', header: 'Dimension', width: 180 },
-              { key: 'score', header: 'Score', width: 70 },
-              { key: 'status', header: 'Status', width: 80 },
+              { key: 'dimension', header: 'Dimension', width: 160 },
+              { key: 'score', header: 'Score', width: 55 },
+              { key: 'status', header: 'Status', width: 85 },
             ]}
             data={dimensionTableData}
           />
