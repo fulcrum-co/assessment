@@ -2,7 +2,7 @@ import { Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
 import { ContactInfo } from '@/lib/types/diagnostic';
 import { DimensionScores } from '@/lib/types/scores';
 import { ReportContent } from '@/lib/types/report';
-import { Heading, Paragraph, Quote, Table, Card, Divider, commonStyles, colors } from '../primitives';
+import { Heading, Paragraph, Quote, commonStyles, colors } from '../primitives';
 import RadarChart from '../charts/RadarChart';
 import { getLogoPath } from '@/lib/pdf/fonts';
 
@@ -44,15 +44,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   chartSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 24,
-  },
-  chartContainer: {
-    width: '30%',
-  },
-  tableContainer: {
-    width: '68%',
   },
   findingCard: {
     backgroundColor: colors.surface,
@@ -74,39 +67,6 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
     { label: 'Capacity', value: scores.capacityModel.score, maxValue: scores.capacityModel.maxScore },
     { label: 'Advisory', value: Math.max(0, scores.advisoryReadiness.score), maxValue: scores.advisoryReadiness.maxScore },
     { label: 'Leverage', value: scores.leverageOpportunity.score, maxValue: scores.leverageOpportunity.maxScore },
-  ];
-
-  const dimensionTableData = [
-    {
-      dimension: 'Strategic Clarity',
-      score: `${scores.strategicClarity.score}/${scores.strategicClarity.maxScore}`,
-      status: scores.strategicClarity.status,
-    },
-    {
-      dimension: 'Execution Capability',
-      score: `${scores.executionGap.score}/${scores.executionGap.maxScore}`,
-      status: scores.executionGap.status,
-    },
-    {
-      dimension: 'Operational Maturity',
-      score: `${scores.operationalMaturity.score}/${scores.operationalMaturity.maxScore}`,
-      status: scores.operationalMaturity.status,
-    },
-    {
-      dimension: 'Capacity & Team Model',
-      score: `${scores.capacityModel.score}/${scores.capacityModel.maxScore}`,
-      status: scores.capacityModel.status,
-    },
-    {
-      dimension: 'Advisory Readiness',
-      score: `${scores.advisoryReadiness.score}/${scores.advisoryReadiness.maxScore}`,
-      status: scores.advisoryReadiness.status,
-    },
-    {
-      dimension: 'Leverage Opportunity',
-      score: `${scores.leverageOpportunity.score}/${scores.leverageOpportunity.maxScore}`,
-      status: scores.leverageOpportunity.status,
-    },
   ];
 
   return (
@@ -137,22 +97,10 @@ export default function ExecutiveSummary({ contact, scores, content }: Executive
         </Text>
       </View>
 
-      {/* Radar Chart and Dimension Table */}
+      {/* Radar Chart */}
       <View style={styles.chartSection}>
-        <View style={styles.chartContainer}>
-          <RadarChart data={radarData} size={140} />
-        </View>
-        <View style={styles.tableContainer}>
-          <Text style={commonStyles.h4}>Diagnostic Profile</Text>
-          <Table
-            columns={[
-              { key: 'dimension', header: 'Dimension', width: 160 },
-              { key: 'score', header: 'Score', width: 55 },
-              { key: 'status', header: 'Status', width: 85 },
-            ]}
-            data={dimensionTableData}
-          />
-        </View>
+        <Text style={commonStyles.h4}>Diagnostic Profile</Text>
+        <RadarChart data={radarData} size={280} />
       </View>
 
       {/* Key Findings */}
