@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 2,
     fontSize: 8,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
     marginRight: 8,
   },
   recommendationHeader: {
@@ -85,7 +85,7 @@ export default function Recommendations({ content }: RecommendationsProps) {
             </View>
             <Paragraph>{rec.content}</Paragraph>
             <View style={{ marginTop: 8 }}>
-              <Text style={[commonStyles.small, { fontFamily: 'Satoshi', fontWeight: 'bold', marginBottom: 4 }]}>
+              <Text style={[commonStyles.small, { fontFamily: 'Satoshi', fontWeight: 700, marginBottom: 4 }]}>
                 Recommended Actions:
               </Text>
               <BulletList items={rec.actions} />
@@ -103,13 +103,13 @@ export default function Recommendations({ content }: RecommendationsProps) {
         <View style={styles.readinessBox}>
           <View style={styles.readinessRow}>
             <Text style={commonStyles.small}>Investment Capacity:</Text>
-            <Text style={[commonStyles.small, { fontFamily: 'Satoshi', fontWeight: 'bold' }]}>
+            <Text style={[commonStyles.small, { fontFamily: 'Satoshi', fontWeight: 700 }]}>
               {engagementReadiness.capacity}
             </Text>
           </View>
           <View style={styles.readinessRow}>
             <Text style={commonStyles.small}>Timeline:</Text>
-            <Text style={[commonStyles.small, { fontFamily: 'Satoshi', fontWeight: 'bold' }]}>
+            <Text style={[commonStyles.small, { fontFamily: 'Satoshi', fontWeight: 700 }]}>
               {engagementReadiness.timeline}
             </Text>
           </View>
@@ -122,7 +122,7 @@ export default function Recommendations({ content }: RecommendationsProps) {
       <View style={styles.nextStepsBox}>
         <Heading level={3}>Next Steps</Heading>
         <Paragraph>{nextSteps.content}</Paragraph>
-        <Text style={[commonStyles.body, { fontFamily: 'Satoshi', fontWeight: 'bold', color: colors.accent }]}>
+        <Text style={[commonStyles.body, { fontFamily: 'Satoshi', fontWeight: 700, color: colors.accent }]}>
           {nextSteps.cta}
         </Text>
         <Link

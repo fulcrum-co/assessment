@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 9,
     textAlign: 'center',
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
   },
   positive: {
     color: colors.success,
@@ -106,11 +106,11 @@ export default function LeverageComparative({ scores, content }: LeverageCompara
         <View style={styles.dimensionHeader}>
           <Heading level={2}>Leverage Opportunity Assessment</Heading>
           <View style={styles.scoreDisplay}>
-            <Text style={{ fontFamily: 'Satoshi', fontWeight: 'bold', fontSize: 14 }}>
+            <Text style={{ fontFamily: 'Satoshi', fontWeight: 700, fontSize: 14 }}>
               {scores.leverageOpportunity.score}/{scores.leverageOpportunity.maxScore}
             </Text>
             <View style={styles.statusBadge}>
-              <Text style={{ fontSize: 9, fontFamily: 'Satoshi', fontWeight: 'bold' }}>
+              <Text style={{ fontSize: 9, fontFamily: 'Satoshi', fontWeight: 700 }}>
                 {scores.leverageOpportunity.status}
               </Text>
             </View>
@@ -166,10 +166,10 @@ export default function LeverageComparative({ scores, content }: LeverageCompara
 
           {/* Header Row */}
           <View style={[styles.benchmarkRow, { backgroundColor: colors.surface }]}>
-            <Text style={[styles.benchmarkLabel, { fontFamily: 'Satoshi', fontWeight: 'bold' }]}>Dimension</Text>
-            <Text style={[styles.benchmarkValue, { fontFamily: 'Satoshi', fontWeight: 'bold' }]}>Your Score</Text>
-            <Text style={[styles.benchmarkValue, { fontFamily: 'Satoshi', fontWeight: 'bold' }]}>Benchmark</Text>
-            <Text style={[styles.benchmarkGap, { fontFamily: 'Satoshi', fontWeight: 'bold' }]}>Gap</Text>
+            <Text style={[styles.benchmarkLabel, { fontFamily: 'Satoshi', fontWeight: 700 }]}>Dimension</Text>
+            <Text style={[styles.benchmarkValue, { fontFamily: 'Satoshi', fontWeight: 700 }]}>Your Score</Text>
+            <Text style={[styles.benchmarkValue, { fontFamily: 'Satoshi', fontWeight: 700 }]}>Benchmark</Text>
+            <Text style={[styles.benchmarkGap, { fontFamily: 'Satoshi', fontWeight: 700 }]}>Gap</Text>
           </View>
 
           {/* Data Rows */}

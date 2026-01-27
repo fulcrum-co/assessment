@@ -29,9 +29,9 @@ export function ensureFontsRegistered() {
       Font.register({
         family: 'Satoshi',
         fonts: [
-          { src: fontUrl, fontWeight: 'normal' },
-          { src: fontUrl, fontWeight: 'bold' },
+          { src: fontUrl, fontWeight: 400 },
           { src: fontUrl, fontWeight: 500 },
+          { src: fontUrl, fontWeight: 700 },
         ],
       });
     } else {
@@ -43,9 +43,9 @@ export function ensureFontsRegistered() {
       Font.register({
         family: 'Satoshi',
         fonts: [
-          { src: fontPath, fontWeight: 'normal' },
-          { src: fontPath, fontWeight: 'bold' },
+          { src: fontPath, fontWeight: 400 },
           { src: fontPath, fontWeight: 500 },
+          { src: fontPath, fontWeight: 700 },
         ],
       });
     }

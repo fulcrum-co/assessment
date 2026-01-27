@@ -17,7 +17,7 @@ function getResendClient(): Resend | null {
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'diagnostic@fulcrumcollective.io';
 const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'joe@fulcrumcollective.io';
-const BASE_URL = process.env.BASE_URL || 'https://diagnostic.fulcrumcollective.io';
+const BASE_URL = process.env.BASE_URL || 'https://assessment.fulcrumcollective.io';
 
 interface SendReportEmailParams {
   contact: ContactInfo;

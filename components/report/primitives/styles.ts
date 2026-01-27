@@ -33,27 +33,27 @@ export const commonStyles = StyleSheet.create({
   },
   h1: {
     fontSize: 24,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
     color: colors.primary,
     marginBottom: 8,
   },
   h2: {
     fontSize: 18,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
     color: colors.primary,
     marginBottom: 8,
     marginTop: 16,
   },
   h3: {
     fontSize: 14,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
     color: colors.primary,
     marginBottom: 6,
     marginTop: 12,
   },
   h4: {
     fontSize: 12,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
     color: colors.primary,
     marginBottom: 4,
     marginTop: 8,
@@ -70,7 +70,7 @@ export const commonStyles = StyleSheet.create({
   },
   caption: {
     fontSize: 8,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
     color: colors.secondary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -112,7 +112,7 @@ export const commonStyles = StyleSheet.create({
   },
   tableHeader: {
     backgroundColor: colors.surface,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
   },
   tableCell: {
     flex: 1,
@@ -124,7 +124,7 @@ export const commonStyles = StyleSheet.create({
     paddingHorizontal: 6,
     borderRadius: 2,
     fontSize: 8,
-    fontFamily: 'Satoshi', fontWeight: 'bold',
+    fontFamily: 'Satoshi', fontWeight: 700,
   },
   badgeSuccess: {
     backgroundColor: '#d1fae5',

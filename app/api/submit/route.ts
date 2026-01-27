@@ -83,7 +83,7 @@ export async function POST(request: Request) {
     // Send report email to user (even if PDF failed, send notification)
     if (process.env.RESEND_API_KEY) {
       try {
-        // Only send report email with attachment if PDF was generated
+        // Send report email with attachment if PDF was generated
         if (pdfBuffer.length > 0) {
           const emailResult = await sendReportEmail({
             contact: responses.contact,
@@ -95,10 +95,11 @@ export async function POST(request: Request) {
           if (!emailResult.success) {
             console.error('Failed to send report email:', emailResult.error);
           } else {
-            console.log('Report email sent successfully');
+            console.log('Report email sent successfully to:', responses.contact.email);
           }
         } else {
-          console.warn('PDF was empty, skipping report email with attachment');
+          console.error('PDF was empty, cannot send report email with attachment');
+          console.error('PDF generation error was:', pdfError?.message || 'Unknown error');
         }
 
         // Always send notification email to admin

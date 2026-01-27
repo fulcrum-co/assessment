@@ -135,7 +135,7 @@ export default function RadarChart({ data, size = 200 }: RadarChartProps) {
           <Text style={{ fontSize: 6, color: colors.primary, fontFamily: 'Satoshi' }}>
             {pos.label}
           </Text>
-          <Text style={{ fontSize: 7, color: colors.accent, fontFamily: 'Satoshi', fontWeight: 'bold' }}>
+          <Text style={{ fontSize: 7, color: colors.accent, fontFamily: 'Satoshi', fontWeight: 700 }}>
             {pos.percentage}%
           </Text>
         </View>
