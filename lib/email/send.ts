@@ -40,7 +40,6 @@ interface SendReportEmailParams {
 export async function sendReportEmail({
   contact,
   scores,
-  reportId,
   pdfBuffer,
 }: SendReportEmailParams): Promise<{ success: boolean; error?: string }> {
   const resend = getResendClient();
@@ -50,8 +49,6 @@ export async function sendReportEmail({
   }
 
   try {
-    const downloadUrl = `${getBaseUrl()}/api/report/${reportId}`;
-
     await resend.emails.send({
       from: `Fulcrum Collective <${FROM_EMAIL}>`,
       to: contact.email,
@@ -85,23 +82,20 @@ export async function sendReportEmail({
 
           <p>Hi ${contact.name},</p>
 
-          <p>Thank you for completing the Organizational Leverage Diagnostic. Your personalized report is attached to this email.</p>
+          <p>Thank you for completing the Organizational Leverage Diagnostic. Please find your personalized report attached to this email.</p>
 
           <div class="score-box">
             <div class="score">${scores.overall}</div>
             <div class="score-label">Organizational Leverage Score</div>
           </div>
 
-          <p>Your report includes:</p>
+          <p>Your attached report includes:</p>
           <ul>
             <li>Detailed analysis across six dimensions</li>
             <li>Pattern identification and key findings</li>
             <li>Benchmark comparison with similar organizations</li>
             <li>Prioritized recommendations for the next 90 days</li>
           </ul>
-
-          <p>You can also download your report anytime:</p>
-          <p><a href="${downloadUrl}" class="button">Download Report</a></p>
 
           <p>If you indicated interest in a conversation, we'll be in touch soon to schedule a diagnostic review call.</p>
 
@@ -119,17 +113,15 @@ Fulcrum Collective
 
 Hi ${contact.name},
 
-Thank you for completing the Organizational Leverage Diagnostic. Your personalized report is attached to this email.
+Thank you for completing the Organizational Leverage Diagnostic. Please find your personalized report attached to this email.
 
 Your Organizational Leverage Score: ${scores.overall}/100
 
-Your report includes:
+Your attached report includes:
 - Detailed analysis across six dimensions
 - Pattern identification and key findings
 - Benchmark comparison with similar organizations
 - Prioritized recommendations for the next 90 days
-
-You can also download your report anytime: ${downloadUrl}
 
 If you indicated interest in a conversation, we'll be in touch soon to schedule a diagnostic review call.
 
